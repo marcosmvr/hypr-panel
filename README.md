@@ -10,10 +10,10 @@ Ele foi criado para facilitar a execução de tarefas comuns diretamente do term
 
 ## Funcionalidades
 
-- **Limpar cache da memória RAM:** Libera cache da memória para melhorar o desempenho do sistema.
-- **Listar processos:** Exibe a lista completa de processos ativos no sistema.
-- **Ativar Virtual Microfone:** Carrega módulos do PulseAudio para criar um microfone virtual, útil para streaming, gravações e roteamento de áudio.
-- **Sair:** Fecha o painel de controle.
+* **Limpar cache da memória RAM:** Libera cache da memória para melhorar o desempenho do sistema.
+* **Listar processos:** Exibe a lista completa de processos ativos no sistema.
+* **Ativar Virtual Microfone:** Carrega módulos do PulseAudio para criar um microfone virtual, útil para streaming, gravações e roteamento de áudio.
+* **Sair:** Fecha o painel de controle.
 
 ---
 
@@ -27,10 +27,24 @@ Por isso, criei este painel minimalista que oferece essas funções em uma inter
 
 ## Tecnologias Utilizadas
 
-- **Node.js:** Plataforma para execução do JavaScript no servidor/terminal.
-- **React Ink:** Biblioteca React para criar interfaces interativas no terminal.
-- **Child Process (`exec`):** Para executar comandos shell diretamente do Node.js.
-- **PulseAudio:** Sistema de som usado para criar o microfone virtual (via comandos `pactl`).
+* **Node.js:** Plataforma para execução do JavaScript no servidor/terminal.
+* **React Ink:** Biblioteca React para criar interfaces interativas no terminal.
+* **Child Process (`exec`):** Para executar comandos shell diretamente do Node.js.
+* **PulseAudio:** Sistema de som usado para criar o microfone virtual (via comandos `pactl`).
+
+---
+
+## Estrutura do Projeto
+
+O código está organizado de forma modular para facilitar manutenção e futuras melhorias:
+
+```
+/src
+  /commands       # Funções que executam comandos específicos do sistema (limpar cache, listar processos, ativar virtual mic)
+  /components     # Componentes React Ink que constroem a interface do terminal
+  /utils          # Utilitários auxiliares, como wrappers para execução de comandos shell
+index.tsx        # Entrada principal que renderiza o painel
+```
 
 ---
 
@@ -57,25 +71,29 @@ Por isso, criei este painel minimalista que oferece essas funções em uma inter
 
 4. No painel, pressione as teclas correspondentes para executar as ações:
 
-   - `L` — Limpar cache da memória RAM (pode pedir senha sudo)
-   - `P` — Listar processos ativos
-   - `A` — Ativar virtual mic
-   - `Q` — Sair do programa
+   * `L` — Limpar cache da memória RAM (pode pedir senha sudo)
+   * `P` — Listar processos ativos
+   * `A` — Ativar virtual mic
+   * `Q` — Sair do programa
 
 ---
 
 ## Importante
 
-- O comando para limpar cache pode solicitar permissão de sudo. Recomenda-se rodar o painel com sudo para evitar travar a execução.
-- O comando de ativação do virtual mic depende do PulseAudio estar instalado e configurado corretamente.
-- A listagem de processos pode gerar uma saída longa, que será exibida diretamente no terminal.
+* O comando para limpar cache pode solicitar permissão de sudo. Recomenda-se rodar o painel com sudo para evitar travar a execução.
+* O comando de ativação do virtual mic depende do PulseAudio estar instalado e configurado corretamente.
+* A listagem de processos pode gerar uma saída longa, que será exibida diretamente no terminal.
 
 ---
 
-## Estrutura do Código
+## Possíveis melhorias futuras
 
-- `index.tsx` — Arquivo principal com o componente React Ink que gerencia a interface e captura inputs do usuário.
-- Comandos shell são executados via `child_process.exec` e o resultado exibido em tempo real no painel.
+* Filtrar e buscar processos por nome ou PID
+* Controlar volume do virtual mic direto pelo painel
+* Exibir uso de CPU e memória em tempo real
+* Histórico de comandos e logs
+* Configuração via arquivo JSON para atalhos e comandos
+* Interface multilíngue (Português/Inglês)
 
 ---
 
