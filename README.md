@@ -1,6 +1,6 @@
 # Painel de Controle Hyprland
 
-![Demonstração do Painel](/src/assets/demo.gif)
+![Demonstração do Painel](src/assets/demo.gif)
 
 ## Descrição
 
