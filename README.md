@@ -102,11 +102,3 @@ index.tsx        # Entrada principal que renderiza o painel
 ## Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests para melhorias, correções ou novas funcionalidades.
-
----
-
-## Licença
-
-Este projeto está sob a licença MIT — veja o arquivo LICENSE para mais detalhes.
-
----
