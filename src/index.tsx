@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import React from 'react'
 import figlet from 'figlet'
 import chalk from 'chalk'
